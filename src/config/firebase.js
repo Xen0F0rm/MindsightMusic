@@ -3,6 +3,8 @@ import * as firebase from "firebase";
 import { FirebaseConfig } from "../config/keys";
 firebase.initializeApp(FirebaseConfig);
 
-const databaseRef = firebase.database().ref();
+export const todosRef = generateEndpoint("todos");
 
-export const todosRef = databaseRef.child("todos");
+function generateEndpoint(name) {
+    return firebase.database().ref().child(name);
+}
