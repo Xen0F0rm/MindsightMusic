@@ -1,8 +1,18 @@
 
 import { combineReducers } from "redux";
 
-import data from "./dataReducer";
+import about from "./aboutReducer";
+import concert from "./concertReducer";
+import drill from "./drillReducer";
+import marching from "./marchingReducer";
+import news from "./newsReducer";
+import supplemental from "./supplementalReducer";
 
 export default combineReducers({
-  data
+  about,
+  concert,
+  drill,
+  marching,
+  news,
+  supplemental
 });

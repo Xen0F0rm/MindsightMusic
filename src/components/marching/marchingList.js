@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
-import * as actions from "../actions";
-import ToDoListItem from "./ToDoListItem";
+import * as actions from "../../actions";
+import MarchingListItem from "./marchingListItem";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 
-class ToDoList extends Component {
+class MarchingList extends Component {
     state = {
         addFormVisible: false,
         addFormValue: "",
@@ -19,16 +19,16 @@ class ToDoList extends Component {
 
     handleFormSubmit = (event) => {
         const { addFormValue } = this.state;
-        const { addToDo } = this.props;
+        const { addMarching } = this.props;
 
         event.preventDefault();
 
-        addToDo({ title: addFormValue });
+        addMarching({ title: addFormValue });
 
         this.setState({ addFormValue: "" });
     };
 
-    renderAddForm = () => {
+    renderMarchingForm = () => {
         const { addFormVisible, addFormValue } = this.state;
 
         if (addFormVisible) {
@@ -51,20 +51,20 @@ class ToDoList extends Component {
         }
     };
 
-    renderToDos() {
-        const { data } = this.props;
-        const toDos = _.map(data, (value, key) => {
-            return <ToDoListItem key={key} todoId={key} todo={value} />;
+    renderMarchingList() {
+        const { marching } = this.props;
+        const marchingList = _.map(marching, (value, key) => {
+            return <MarchingListItem key={key} marchingId={key} marching={value} />;
         });
 
-        if (!_.isEmpty(toDos)) {
-            return toDos;
+        if (!_.isEmpty(marchingList)) {
+            return marchingList;
         }
 
         return (
             <div>
                 <Typography variant="title" gutterBottom>
-                    You have completed all the tasks
+                    You have completed all the marching
                 </Typography>
 
                 <Typography variant="subheading" gutterBottom>
@@ -75,7 +75,7 @@ class ToDoList extends Component {
     }
 
     componentWillMount() {
-        this.props.fetchToDos();
+        this.props.fetchMarchingList();
     }
 
     // Main render method for component.
@@ -84,7 +84,7 @@ class ToDoList extends Component {
 
         return (
             <div>
-                {this.renderToDos()}
+                {this.renderMarchingList()}
 
                 <Button
                     onClick={() =>
@@ -96,19 +96,19 @@ class ToDoList extends Component {
                     {addFormVisible ? "Close" : "Add"}
                 </Button>
 
-                {this.renderAddForm()}
+                {this.renderMarchingForm()}
             </div>
         );
     }
 }
 
-const mapStateToProps = ({ data }) => {
+const mapStateToProps = ({ marching }) => {
     return {
-        data,
+        marching,
     };
 };
 
 export default connect(
     mapStateToProps,
     actions,
-)(ToDoList);
+)(MarchingList);
