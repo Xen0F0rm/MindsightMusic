@@ -1,0 +1,62 @@
+.header {
+    height: 70vh;
+    background-size: 100vw;
+    background-image: url("../images/musicBackground.jpg");
+}
+
+.headerGradient {
+    height: 70vh;
+    width: 100vw;
+    background-size: 100vw;
+    background-image: radial-gradient(#fff, #ddccff);
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.headerJumbotron {
+    position: relative;
+    height: 70vh;
+    width: 100vw;
+    z-index: 15;
+}
+
+.homeLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 50vw;
+    height: 70vh;
+    padding: 20vh 10vh;
+}
+
+.homeSubTitle {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    letter-spacing: 3px;
+}
+
+.homeParagraph {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+}
+
+.homeRight {
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    display: inline-block;
+    width: 50vw;
+    height: 70vh;
+    padding: 20vh 10vh;
+}
+
+.homeVideo {
+    position: relative;
+    width: 40vw;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
